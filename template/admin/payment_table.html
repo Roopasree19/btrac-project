@@ -1,0 +1,40 @@
+{% extends 'admin/headerfooter1.html' %}
+{% block content %}
+
+	 <script src="https://kit.fontawesome.com/12e90061e5.js" crossorigin="anonymous"></script>
+  
+<div class="container-fluid">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">user name</th>
+    
+      <th scope="col">date</th>
+      <th scope="col">time</th>
+      <th scope="col">total</th>
+      <th scope="col">status</th>
+
+     
+    </tr>
+  </thead>
+  <tbody>
+ {% for x in details %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{x.uid.name}}</td>
+    
+      <td>{{x.date}}</td>
+      <td>{{x.time}}</td>
+      <td>{{x.total}}</td>
+      <td>{{x.status}}</td>
+      <td><a href="/downloadpdf/?pid={{x.id}}"><i class="fa fa-file-pdf-o"></i></a></td>
+   <!--    <td><a href="/admin_delete/?did={{x.id}}"><i class="fa fa-trash"></i></a></td> -->
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+										
+									
+{% endblock %}

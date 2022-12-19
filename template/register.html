@@ -1,0 +1,76 @@
+<!-- banner -->
+ {% extends 'admin/headerfooter1.html' %}
+ {% block content %}
+<div class="page-head">
+	<div class="container">
+		<h3>register</h3>
+	</div>
+</div>
+<!-- //banner -->
+<!-- contact -->
+	<div class="contact">
+		<div class="container">
+			<div class="contact-grids">
+				<div class="col-md-4 contact-grid text-center animated wow slideInLeft" data-wow-delay=".5s">
+					
+						<i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
+						
+						<h4 style="color:red; text-align: center;">{{error}}</h4>
+						
+					</div>
+				</div>
+				
+			
+			<h3 class="tittle">register Form</h3>
+			<form action="/register/" method="post">
+				<div class="contact-form2">
+					{% csrf_token %}
+					<div class="form-group">
+					<input type="text" value="name" name="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'name';}" required="">
+				    </div>
+				    <div class="form-group">
+					<input type="email" value="email" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'email';}" required="">
+				    </div>
+
+				    <div class="form-group">
+					<input type="text" value="password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}" required="">
+				    </div>
+				    
+					<input type="submit" value="submit" >
+				</div>
+			</form>
+		</div>
+	</div>
+	
+<!-- //contact -->
+
+<!-- //product-nav -->
+<div class="coupons">
+	<div class="container">
+		<div class="coupons-grids text-center">
+			<div class="col-md-3 coupons-gd">
+				<h3>Buy your product in a simple way</h3>
+			</div>
+			<div class="col-md-3 coupons-gd">
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+				<h4>LOGIN TO YOUR ACCOUNT</h4>
+				<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
+			sit amet, consectetur.</p>
+			</div>
+			<div class="col-md-3 coupons-gd">
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				<h4>SELECT YOUR ITEM</h4>
+				<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
+			sit amet, consectetur.</p>
+			</div>
+			<div class="col-md-3 coupons-gd">
+				<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+				<h4>MAKE PAYMENT</h4>
+				<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
+			sit amet, consectetur.</p>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+{% endblock %}

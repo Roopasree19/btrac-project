@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payment Details</title>
+</head>
+<body>
+  {% for x in data %}
+  <div style="float: left;">
+  	<h4>Name: {{x.uid.name}}</h4>
+    <h4>Email: {{x.uid.email}}</h4>
+
+  </div>
+  <div style="float: left;">
+  	<h4>Date: {{x.date}}</h4>
+  	<h4>Time: {{x.time}}</h4>
+
+  </div>
+  <div>
+  	<h4>Total: {{x.total}}</h4>
+
+  </div>
+  {% endfor %}
+</body>
+</html>

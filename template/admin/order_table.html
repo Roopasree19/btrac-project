@@ -1,0 +1,41 @@
+{% extends 'admin/headerfooter1.html' %}
+{% block content %}
+
+ <script src="https://kit.fontawesome.com/12e90061e5.js" crossorigin="anonymous"></script>
+  
+<div class="container-fluid">
+	<h3>Tables</h3>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">user name</th>
+      <th scope="col">product name</th>
+      <th scope="col">image</th>
+      <th scope="col">quantity</th>
+      <th scope="col">totalamount</th>
+      <th scope="col">status</th>
+
+    
+    </tr>
+  </thead>
+  <tbody>
+ {% for x in details %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{x.uid.name}}</td>
+      <td>{{x.pid.name}}</td>
+      <td><img src="{{x.pid.image.url}}" width="200" height="200"></td>
+      <td>{{x.quantity}}</td>
+       <td>{{x.totalamount}}</td>
+      <td>{{x.status}}</td>
+      <!-- <td><a href="/admin_update/?uid={{x.id}}"><i class="fa fa-edit"></i></a></td>
+      <td><a href="/admin_delete/?did={{x.id}}"><i class="fa fa-trash"></i></a></td> -->
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+										
+									
+{% endblock %}

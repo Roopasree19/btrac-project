@@ -1,0 +1,80 @@
+{% extends 'admin/headerfooter1.html' %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script > 
+function viewdata()
+{
+  // alert("a");
+  var d=document.getElementById('user').value;
+  $.ajax({
+
+        url:'/ajaxview/',
+        data:
+        {
+          'uid':d
+        },
+        datatype: 'json',
+        success: function(data)
+        {
+          document.getElementById("nameid").innerHTML=data.aa;
+          document.getElementById("emailid").innerHTML=data.bb;
+          // document.getElementById("placeid").innerHTML=data.cc;
+          // document.getElementById("phoneid").innerHTML=data.dd;
+          // document.getElementById("addressid").innerHTML=data.ee;
+
+
+        }
+
+
+      });
+}
+</script> 
+
+
+<div class="grids">
+<h4>Basic Form </h4>
+</div>
+<div class="panel panel-widget forms-panel">
+<div class="forms">
+<form>
+  {% csrf_token %}
+<div class="form-group">
+	<label for="user">Name</label> 
+	 <select id="user" name="user" onchange="viewdata();">
+    <option>Select one</option>
+    {% for x in details %}}
+    <option value="{{x.id}}">{{x.name}}</option>
+    {% endfor %}
+    <!-- <option value="manu">manu</option>
+    <option value="abhi">abhi</option> -->
+  </select>
+	<!-- <input type="text" name="name" class="form-control" placeholder="" required=""> -->
+</div>
+</form>
+</div>
+</div>
+
+
+
+<div class="container-fluid">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td id="nameid"></td>
+      <td id="emailid"></td>
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+{% endblock %}
